@@ -1,0 +1,26 @@
+{
+	"authors": [
+		"fence"
+	],
+	"copyright": "Copyright © 2020, fence",
+	"description": "A minimal D application.",
+	"license": "ISC",
+	"name": "mpv",
+	"libs": [
+		"mpv"
+	],
+	"configurations": [
+        {
+            "name": "mpv",
+            "targetType": "library",
+            "excludedSourceFiles": [ "examples/**/*.d" ]
+        },
+        {
+            "name": "mpvd-play",
+            "targetType": "executable",
+            "targetName": "mpvd-play",
+            "mainSourceFile": "examples/play.d"
+        }
+
+    ]
+}

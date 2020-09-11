@@ -1,0 +1,15 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/mpv
+mpv.so
+mpv.dylib
+mpv.dll
+mpv.a
+mpv.lib
+mpv-test-*
+*.exe
+*.o
+*.obj
+*.lst
