@@ -1,7 +1,7 @@
 import core.stdc.stdlib;
 import std.string;
 import std.stdio;
-import mpv;
+import mpv.client;
 
 int playFile(mpv_handle *handle, string file) {
     const(char)** cmd = cast(const(char)**) malloc(3);
@@ -32,8 +32,8 @@ int main(string[] args) {
     while(true) {
         mpv_event *event = mpv_wait_event(handle, 10000);
         
-        // check for MPV_EVENT_SHUTDOWN 
-        if (event.event_id == 1) {
+        // check for MPV_EVENT_SHUTDOWN_id 
+        if (event.event_id == mpv_event_id.MPV_EVENT_SHUTDOWN) {
             break;
         } 
     }

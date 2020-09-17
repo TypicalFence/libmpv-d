@@ -11,5 +11,7 @@ mpv.lib
 mpv-test-*
 *.exe
 *.o
+*.a
 *.obj
 *.lst
+mpvd*
