@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build-lib:
+    name: Build library
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        dc: [dmd-latest, ldc-latest]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install deps
+      run: sudo apt install libmpv-dev
+
+    - name: Install D compiler
+      uses: dlang-community/setup-dlang@v1
+      with:
+        compiler: ${{ matrix.dc }}
+
+    - name: Build code
+      run: dub build --print-platform  -v --config=mpv
+
+  build-examples:
+    name: Build examples
+    runs-on: ubuntu-latest
+    needs: [build-lib]
+
+    strategy:
+      matrix:
+        dc: [dmd-latest, ldc-latest]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install deps
+      run: sudo apt install libmpv-dev
+
+    - name: Install D compiler
+      uses: dlang-community/setup-dlang@v1
+      with:
+        compiler: ${{ matrix.dc }}
+
+    - name: Build mpvd-play
+      run: dub build --print-platform  -v --config=mpvd-play
+    
