@@ -3,7 +3,7 @@
 		"fence"
 	],
 	"copyright": "Copyright © 2020, fence",
-	"description": "A minimal D application.",
+	"description": "bindings to libmpv",
 	"license": "ISC",
 	"name": "mpv",
 	"libs": [
